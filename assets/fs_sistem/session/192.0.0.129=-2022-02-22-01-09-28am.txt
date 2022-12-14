@@ -1,0 +1,1 @@
+{"kdMember":"MFC-memb-2","nmMember":"user1","kdJabatan":"1","kdKantor":"kant-1","nmKantor":"NOTARIS","username":"wr1-user1","password":"aaa"}

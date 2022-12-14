@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>403 Forbidden</title>
+</head>
+<body>
+
+<p>Directory access is forbidden.</p>
+
+</body>
+</html>
+
+
+<!-- function _getAllDataUsulanBandingan($no,$tahun,$where){
+	$posisi="1";
+	$alias="a";
+
+	$selectTambahan=" 
+		".$posisi." as noTabelSub, ".$no." as nomors,".$tahun." as tahuns,j.nmDinas,k.pertimbangan,k.filePertimbangan, 
+		CASE 
+			WHEN char_length(k.files1)>0 && char_length(k.files2)=0 THEN k.nmTujuanDisposisi1
+			ELSE k.nmTujuanDisposisi2
+		END as penimbang,
+	";
+	
+	$q="  SELECT * from ( ".($this->_dataUsulanBandingan($selectTambahan,
+			"JOIN usulan h ON
+				".$alias.".kdSub".$posisi."=h.kdSubJenis 
+				and ".$alias.".noPembahasan".$posisi."=h.noPembahasan
+				and ".$alias.".date".$posisi."=h.tahun
+			LEFT JOIN dsub i on 
+				h.kdSub=i.kdSub
+			left join dinas j on
+				h.kdDinas=j.kdDinas
+			left join disposisi k on
+				h.kdUsulan=k.kdUsulan and
+				h.kdMember=k.kdMember and
+				h.noPembahasan=k.noPembahasan and
+				h.perkada=k.perkada and
+				h.tahun=k.tahun
+			where h.noPembahasan=".$this->_checkStringQuery($no)." and h.tahun=".$this->_checkStringQuery($tahun).$where."",
+			($no-1),
+			$tahun
+	));
+	$posisi="2";
+	$alias="b";
+	$q.=" UNION ALL ".($this->_dataUsulanBandingan(" ".$posisi." as noTabelSub, ".$no." as nomors,".$tahun." as tahuns,j.nmDinas,k.pertimbangan,k.filePertimbangan, ",
+			"JOIN usulan h ON
+				".$alias.".kdSub".$posisi."=h.kdSubJenis 
+				and ".$alias.".noPembahasan".$posisi."=h.noPembahasan
+				and ".$alias.".date".$posisi."=h.tahun
+			LEFT JOIN dsub i on 
+				h.kdSub=i.kdSub
+			left join dinas j on
+				h.kdDinas=j.kdDinas
+			left join disposisi k on
+				h.kdUsulan=k.kdUsulan and
+				h.kdMember=k.kdMember and
+				h.noPembahasan=k.noPembahasan and
+				h.perkada=k.perkada and
+				h.tahun=k.tahun
+			where h.noPembahasan=".$this->_checkStringQuery($no)." and h.tahun=".$this->_checkStringQuery($tahun).$where."",
+			($no-1),
+			$tahun
+		));
+
+	// return print_r($this->qdata->_log($d1.$d2));
+	$posisi="3";
+	$alias="c";
+	$q.=" UNION ALL ".($this->_dataUsulanBandingan(" ".$posisi." as noTabelSub, ".$no." as nomors,".$tahun." as tahuns,j.nmDinas,k.pertimbangan,k.filePertimbangan, ",
+			"JOIN usulan h ON
+				".$alias.".kdSub".$posisi."=h.kdSubJenis 
+				and ".$alias.".noPembahasan".$posisi."=h.noPembahasan
+				and ".$alias.".date".$posisi."=h.tahun
+			LEFT JOIN dsub i on 
+				h.kdSub=i.kdSub
+			left join dinas j on
+				h.kdDinas=j.kdDinas
+			left join disposisi k on
+				h.kdUsulan=k.kdUsulan and
+				h.kdMember=k.kdMember and
+				h.noPembahasan=k.noPembahasan and
+				h.perkada=k.perkada and
+				h.tahun=k.tahun
+			where h.noPembahasan=".$this->_checkStringQuery($no)." and h.tahun=".$this->_checkStringQuery($tahun).$where."",
+			($no-1),
+			$tahun
+		));
+	$posisi="4";
+	$alias="d";
+	$q.=" UNION ALL ".($this->_dataUsulanBandingan(" ".$posisi." as noTabelSub, ".$no." as nomors,".$tahun." as tahuns,j.nmDinas,k.pertimbangan,k.filePertimbangan, ",
+			"JOIN usulan h ON
+				".$alias.".kdSub".$posisi."=h.kdSubJenis 
+				and ".$alias.".noPembahasan".$posisi."=h.noPembahasan
+				and ".$alias.".date".$posisi."=h.tahun
+			LEFT JOIN dsub i on 
+				h.kdSub=i.kdSub
+			left join dinas j on
+				h.kdDinas=j.kdDinas
+			left join disposisi k on
+				h.kdUsulan=k.kdUsulan and
+				h.kdMember=k.kdMember and
+				h.noPembahasan=k.noPembahasan and
+				h.perkada=k.perkada and
+				h.tahun=k.tahun
+			where h.noPembahasan=".$this->_checkStringQuery($no)." and h.tahun=".$this->_checkStringQuery($tahun).$where."",
+			($no-1),
+			$tahun
+		));
+	$posisi="5";
+	$alias="e";
+	$q.=" UNION ALL ".($this->_dataUsulanBandingan(" ".$posisi." as noTabelSub, ".$no." as nomors,".$tahun." as tahuns,j.nmDinas,k.pertimbangan,k.filePertimbangan, ",
+			"JOIN usulan h ON
+				".$alias.".kdSub".$posisi."=h.kdSubJenis 
+				and ".$alias.".noPembahasan".$posisi."=h.noPembahasan
+				and ".$alias.".date".$posisi."=h.tahun
+			LEFT JOIN dsub i on 
+				h.kdSub=i.kdSub
+			left join dinas j on
+				h.kdDinas=j.kdDinas
+			left join disposisi k on
+				h.kdUsulan=k.kdUsulan and
+				h.kdMember=k.kdMember and
+				h.noPembahasan=k.noPembahasan and
+				h.perkada=k.perkada and
+				h.tahun=k.tahun
+			where h.noPembahasan=".$this->_checkStringQuery($no)." and h.tahun=".$this->_checkStringQuery($tahun).$where."",
+			($no-1),
+			$tahun
+		));
+	$posisi="6";
+	$alias="f";
+	$q.=" UNION ALL ".($this->_dataUsulanBandingan(" ".$posisi." as noTabelSub, ".$no." as nomors,".$tahun." as tahuns,j.nmDinas,k.pertimbangan,k.filePertimbangan, ",
+			"JOIN usulan h ON
+				".$alias.".kdSub".$posisi."=h.kdSubJenis 
+				and ".$alias.".noPembahasan".$posisi."=h.noPembahasan
+				and ".$alias.".date".$posisi."=h.tahun
+			LEFT JOIN dsub i on 
+				h.kdSub=i.kdSub
+			left join dinas j on
+				h.kdDinas=j.kdDinas
+			left join disposisi k on
+				h.kdUsulan=k.kdUsulan and
+				h.kdMember=k.kdMember and
+				h.noPembahasan=k.noPembahasan and
+				h.perkada=k.perkada and
+				h.tahun=k.tahun
+			where h.noPembahasan=".$this->_checkStringQuery($no)." and h.tahun=".$this->_checkStringQuery($tahun).$where."",
+			($no-1),
+			$tahun
+		));
+	// return print_r($q);
+	$posisi="7";
+	$alias="g";
+	$q.=" UNION ALL ".($this->_dataUsulanBandingan(" ".$posisi." as noTabelSub, ".$no." as nomors,".$tahun." as tahuns,j.nmDinas, k.pertimbangan,k.filePertimbangan,",
+			"JOIN usulan h ON
+				".$alias.".kdSub".$posisi."=h.kdSubJenis 
+				and ".$alias.".noPembahasan".$posisi."=h.noPembahasan
+				and ".$alias.".date".$posisi."=h.tahun
+			LEFT JOIN dsub i on 
+				h.kdSub=i.kdSub
+			left join dinas j on
+				h.kdDinas=j.kdDinas
+			left join disposisi k on
+				h.kdUsulan=k.kdUsulan and
+				h.kdMember=k.kdMember and
+				h.noPembahasan=k.noPembahasan and
+				h.perkada=k.perkada and
+				h.tahun=k.tahun
+			where h.noPembahasan=".$this->_checkStringQuery($no)." and h.tahun=".$this->_checkStringQuery($tahun).$where."",
+			($no-1),
+			$tahun
+		))."
+		) a
+		order by a.kdSub1,a.kdSub2,a.kdSub3,a.kdSub4,a.kdSub5,a.kdSub6,a.kdSub7 asc
+	";
+	return $q;
+} -->

@@ -1,0 +1,1 @@
+{"kdMember":"2G18-memb-1","nmMember":"Bagus H","kdJabatan":"4","kdKantor":"kant-1","nmKantor":"NOTARIS","username":"m0-dev","password":"aaa"}

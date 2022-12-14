@@ -1,0 +1,26 @@
+ALTER TABLE `dinas` CHANGE `taDinas` `taDinas` VARCHAR(10);
+
+ALTER TABLE `apbd1` CHANGE `taApbd1` `taApbd1` VARCHAR(10);
+ALTER TABLE `apbd2` CHANGE `taApbd2` `taApbd2` VARCHAR(10);
+ALTER TABLE `apbd3` CHANGE `taApbd3` `taApbd3` VARCHAR(10);
+ALTER TABLE `apbd4` CHANGE `taApbd4` `taApbd4` VARCHAR(10);
+ALTER TABLE `apbd5` CHANGE `taApbd5` `taApbd5` VARCHAR(10);
+ALTER TABLE `apbd6` CHANGE `taApbd6` `taApbd6` VARCHAR(10);
+
+ALTER TABLE `purusan` CHANGE `taUrusan` `taUrusan` VARCHAR(10);
+ALTER TABLE `pbidang` CHANGE `taBidang` `taBidang` VARCHAR(10);
+ALTER TABLE `pprogram` CHANGE `taProg` `taProg` VARCHAR(10);
+ALTER TABLE `pkegiatan` CHANGE `taKeg` `taKeg` VARCHAR(10);
+ 
+ALTER TABLE `ptamsub` CHANGE `taSub` `taSub` VARCHAR(10);
+ALTER TABLE `psub` CHANGE `taSub` `taSub` VARCHAR(10);
+
+aad taSsh 
+ALTER TABLE `ssh` CHANGE `taSsh` `taSsh` VARCHAR(10);
+
+ALTER TABLE `ubjudul` CHANGE `taJudul` `taJudul` VARCHAR(10);
+ALTER TABLE `ubrincian` CHANGE `taRincian` `taRincian` VARCHAR(10);
+
+
+ALTER TABLE `apbd5` DROP PRIMARY KEY, ADD PRIMARY KEY(`kdApbd5`, `kdApbd4`, `taApbd5`); 
+ALTER TABLE `apbd6` DROP PRIMARY KEY, ADD PRIMARY KEY(`kdApbd6`, `kdApbd5`, `taApbd6`); 
