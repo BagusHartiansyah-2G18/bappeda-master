@@ -485,7 +485,7 @@ class WsKomponen extends CI_Controller {
 
     // pengaturan
     function export($page){ // export
-        $this->load->helper("tmDashio_helper");
+        $this->load->helper("tmdashio_r_helper");
         $this->_=array_merge(
             $this->_,
             [
@@ -494,7 +494,7 @@ class WsKomponen extends CI_Controller {
                 "user"=>$this->nm,
                 "kdJab"=>$this->kdJabatan,
                 "idBody"=>"bodyTM",
-                "ind"=>4,
+                "ind"=>6,
                 "index"=>0
             ]
         );

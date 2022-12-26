@@ -351,7 +351,7 @@
                 from ptamsub b
                 where b.taSub='".$tahun."'
                 ".$where."
-                limit 20
+                -- limit 20
         ";
     }
     function _dinasMus($where){
