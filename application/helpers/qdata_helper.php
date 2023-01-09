@@ -544,10 +544,14 @@
         
     }
     function _qupdKeyGroup($onOff,$lengthKdPage,$kodeForm,$kodeMember,$tahun,$kdApp){
+        $qkdMember=" kdMember='".$kodeMember."' and ";
+        if($kodeMember==null){
+            $qkdMember="";
+        }
         return "update appkey set kunci=".$onOff."
                 WHERE kdFitur like '%".$kodeForm."%' AND 
                 length(kdFitur)!=".$lengthKdPage." and
-                kdMember='".$kodeMember."' and 
+                ".$qkdMember."
                 ta='".$tahun."' and 
                 kdApp='".$kdApp."'
             ";

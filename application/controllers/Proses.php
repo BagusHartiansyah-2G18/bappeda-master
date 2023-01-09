@@ -564,6 +564,28 @@ class Proses extends CI_Controller {
             return $this->mbgs->resFalse("Terjadi Kesalahan di penyimpanan sistem");
         }
     }
+    function onOffAllKeyMus(){
+        if($this->sess->kdMember==null){
+            return $this->mbgs->resFalse("maaf, Pengguna tidak terdeteksi !!!");
+        }
+        $baseEND=json_decode((base64_decode($_POST['data'])));
+        $kunci=$baseEND->{'kunci'}; 
+        $qeuryUpdKey=_qupdKeyGroup(
+            $kunci,
+            strlen($this->sess->keyTahapan),
+            $this->sess->keyTahapan,
+            null,
+            $this->sess->tahun,
+            $this->sess->kdApp
+        );
+        // return print_r($qeuryUpdKey);
+        $check=$this->qexec->_proc($qeuryUpdKey);
+        if($check){
+            return $this->mbgs->resTrue($this->_);
+        }else{
+            return $this->mbgs->resFalse("Terjadi Kesalahan di penyimpanan sistem");
+        }
+    }
     
     
     // pengaturan
